@@ -8,7 +8,7 @@ import Login from "./components/modals/Login";
 
 function App() {
 
-  const [loginModal, setLoginModal] = useState(true)
+  const [loginModal, setLoginModal] = useState(false)
 
   return (
     <div className="w-full h-full flex flex-col relative">
