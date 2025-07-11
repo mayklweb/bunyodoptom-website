@@ -8,3 +8,7 @@ export const productsFilter = (arr) => `/products?${arr.map(id => `brand_id[]=${
 export const brandsList = '/brands'
 export const productWithCategoryId = (id) => `/products?category_id=${id}`
 export const productWithSlug = (slug) => `/products?_relations=brands,categorys&slug=${slug}`
+
+export const registerUrl = '/register'
+
+export const orderPost = '/orders'

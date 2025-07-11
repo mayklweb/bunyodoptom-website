@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ChevronDownIcon, HeartIcon, ShoppingCartIcon } from "lucide-react";
+import { HeartIcon } from "lucide-react";
 
 
 function Products() {
@@ -60,9 +60,9 @@ function Products() {
         <div className="flex ">
 
           {/* Sidebar */}
-          <aside className="w-[300px] sticky top-0 left-0">
+          <aside className="w-[300px] h-full">
             {/* Categories */}
-            <div className=" bg-[#e5e5ff] rounded-[10px]">
+            <div className="sticky top-10 left-10 bg-[#e5e5ff] rounded-[10px]">
               <div className="p-5">
                 <h2 className="font-semibold text-app-primary text-xl mb-6">
                   Kategoriya
@@ -88,34 +88,6 @@ function Products() {
                 </ul>
               </div>
             </div>
-
-            {/* Brands */}
-            <div className="mt-5 bg-[#e5e5ff] rounded-[10px]">
-              <div className="p-5">
-                <h2 className="font-semibold text-app-primary text-xl mb-6">
-                  Brand
-                </h2>
-                <ul className="space-y-4">
-                  {brands.map((brand, index) => (
-                    <li
-                      key={`brand-${index}`}
-                      className="flex justify-between"
-                    >
-                      <span
-                        className={`${brand.selected ? "font-semibold text-app-primary" : "font-normal text-[#0d0d2d]"} text-lg`}
-                      >
-                        {brand.name}
-                      </span>
-                      <span
-                        className={`${brand.selected ? "font-semibold text-app-primary" : "font-normal text-[#0d0d2d]"} text-lg text-right`}
-                      >
-                        {brand.count}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </aside>
 
           {/* Product Grid */}
@@ -134,7 +106,7 @@ function Products() {
                     <HeartIcon size={20} />
                   </button>
                   <div className='w-full h-full object-cover'>
-                  <img src={product.image} alt="" className='w-full h-full object-cover' />
+                    <img src={product.image} alt="" className='w-full h-full object-cover' />
 
                   </div>
                 </div>

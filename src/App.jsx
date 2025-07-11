@@ -1,14 +1,17 @@
-import { ArrowLeft, ArrowRight, ArrowUpIcon, ChevronLeft, ChevronRight, HeartIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { ArrowUpIcon, MailIcon, PhoneIcon } from "lucide-react";
 import React, { useState } from "react";
 import Header from "./components/header";
 import { routes } from "./utils/routes";
 import { Route, Router, Routes } from "react-router-dom";
-import Login from "./components/modals/Login";
-// import { Separator } from "../../components/ui/separator";
+import Login from "./components/modals/LogIn";
+import SignUp from "./components/modals/SignUp";
+import { useSelector } from "react-redux";
+import { createPortal } from "react-dom";
 
 function App() {
 
-  const [loginModal, setLoginModal] = useState(false)
+  const { signUp, logIn } = useSelector(state => state.modals)
+
 
   return (
     <div className="w-full h-full flex flex-col relative">
@@ -143,7 +146,8 @@ function App() {
       >
         <ArrowUpIcon className="w-6 h-6 text-white" />
       </button>
-      <Login loginModal={loginModal} setLoginModal={setLoginModal}/>
+      {signUp && createPortal(<SignUp />, document.querySelector('#root'))}
+      {logIn && createPortal(<Login />, document.querySelector('#root'))}
     </div>
   );
 };

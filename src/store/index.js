@@ -4,6 +4,8 @@ import product from "./slices/product";
 import cart from "./slices/cart";
 import orders from "./slices/orders";
 import products from "./slices/products";
+import modals from "./slices/modals";
+import user from "./slices/user";
 
 
 export const store = configureStore({
@@ -12,6 +14,9 @@ export const store = configureStore({
     product,
     cart,
     orders,
-    products
+    products,
+    modals, 
+    user
   }
 })
+

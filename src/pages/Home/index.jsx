@@ -18,6 +18,10 @@ function Home() {
     { id: 4, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
     { id: 5, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
     { id: 6, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
+    { id: 7, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
+    { id: 8, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
+    { id: 9, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
+    { id: 10, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
   ];
 
   // Product data
@@ -84,11 +88,13 @@ function Home() {
               </h2>
               <div className="flex gap-2.5">
                 <button
+                  ref={prevRef}
                   className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
                 >
                   <ChevronLeft size={22} />
                 </button>
                 <button
+                  ref={nextRef}
                   className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
                 >
                   <ChevronRight size={22} />
@@ -96,25 +102,35 @@ function Home() {
               </div>
             </div>
 
-            <div className="flex gap-[18px] mt-6">
+            <Swiper slidesPerView={6} modules={[Navigation]}
+              navigation={{
+                prevEl: prevRef.current,
+                nextEl: nextRef.current,
+              }}
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }} className="">
               {categories.map((category, index) => (
-                <div
-                  key={index}
-                  className="w-[195px] h-[210px] rounded-xl border-[#f1f1f1] shadow-[0px_2px_14px_#00000017]"
-                >
-                  <div className="w-full h-4/5 overflow-hidden p-3">
-                    <img
-                      className="w-full h-full object-cover rounded-[8px] "
-                      alt={category.name}
-                      src={category.image}
-                    />
+                <SwiperSlide key={index} className='pb-10'>
+                  <div
+                    className="w-[195px] h-[210px] rounded-xl border-[#f1f1f1] shadow-[0px_2px_14px_#00000017]"
+                  >
+                    <div className="w-full h-4/5 overflow-hidden p-3">
+                      <img
+                        className="w-full h-full object-cover rounded-[8px] "
+                        alt={category.name}
+                        src={category.image}
+                      />
+                    </div>
+                    <p className=" [font-family:'Poppins',Helvetica] text-black text-base text-center leading-[25px]">
+                      {category.name}
+                    </p>
                   </div>
-                  <p className=" [font-family:'Poppins',Helvetica] text-black text-base text-center leading-[25px]">
-                    {category.name}
-                  </p>
-                </div>
+                </SwiperSlide>
               ))}
-            </div>
+
+            </Swiper>
           </div>
         </div>
       </section>
@@ -125,7 +141,7 @@ function Home() {
           Sizga yoqadiganlari
         </h2>
 
-        <div className="grid grid-cols-4 gap-x-[16px] gap-y-[28px]">
+        <div className="grid grid-cols-4 gap-6">
           {products.map((product, index) => (
             <div key={index} className="w-[300px] h-64 rounded-[20px]">
               <div className="relative w-full h-[70%] rounded-[20px] overflow-hidden">
