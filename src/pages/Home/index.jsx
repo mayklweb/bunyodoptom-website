@@ -1,15 +1,32 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, ArrowUpIcon, ChevronLeft, ChevronRight, HeartIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import ProductModal from '../../components/modals/ProductModal';
+import { createPortal } from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { modalOpen } from '../../store/slices/modals';
 
 function Home() {
+
+  const { product } = useSelector(state => state.modals)
+  const [modalProduct, setModalProduct] = useState(null)
+  const dispatch = useDispatch()
+
+  
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
+  const openProductModal = (item) => {
+    setModalProduct(item)
+    dispatch(modalOpen("product"));
+  }
+
+  
+ 
   // Category data
   const categories = [
     { id: 1, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
@@ -55,25 +72,41 @@ function Home() {
       {/* Hero Banner */}
       <section>
         <div className="container max-w-[1260px] w-full mx-auto">
-          <div className="w-full h-[50vh] mt-10 relative rounded-xl overflow-hidden">
-            <div className="w-full h-full bg-black">
-              <div className="absolute w-[483px] h-[168px] top-24 left-10">
-                <h1 className="absolute w-[483px] top-0 left-0 [font-family:'Source_Sans_Pro',Helvetica] font-semibold text-[#ffffff] text-[23px] leading-[28.8px]">
-                  KitKatdan mazali shokolad tatib ko'rib keyin&nbsp;&nbsp;bizga baho
-                  bering
-                </h1>
-                <p className="absolute w-[386px] top-[63px] left-0 [font-family:'Source_Sans_Pro',Helvetica] font-normal text-[#d9d9d9] text-lg leading-[27px]">
-                  KitKatdan mazali shokolad tatib ko'rib keyin&nbsp;&nbsp;bizga baho
-                  bering KitKatdan mazali.
-                </p>
-                <button
-                  variant="outline"
-                  className="absolute top-[127px] left-0 h-[41px] border-[#cdcfff] text-[#cdcfff] [font-family:'Source_Sans_Pro',Helvetica] font-semibold text-lg"
-                >
-                  Batafsil
-                </button>
-              </div>
-            </div>
+          <div className="">
+            <Swiper slidesPerView={1} modules={[Navigation]}
+              navigation={{
+                prevEl: prevRef.current,
+                nextEl: nextRef.current,
+              }}
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }} className="w-full h-[50vh] mt-10 relative rounded-xl overflow-hidden">
+              {categories.map((category, index) => (
+                <SwiperSlide key={index} className='pb-10'>
+                  <div className="w-full h-full bg-black">
+                    <div className="absolute w-[483px] h-[168px] top-24 left-10">
+                      <h1 className="absolute w-[483px] top-0 left-0 [font-family:'Source_Sans_Pro',Helvetica] font-semibold text-[#ffffff] text-[23px] leading-[28.8px]">
+                        KitKatdan mazali shokolad tatib ko'rib keyin&nbsp;&nbsp;bizga baho
+                        bering
+                      </h1>
+                      <p className="absolute w-[386px] top-[63px] left-0 [font-family:'Source_Sans_Pro',Helvetica] font-normal text-[#d9d9d9] text-lg leading-[27px]">
+                        KitKatdan mazali shokolad tatib ko'rib keyin&nbsp;&nbsp;bizga baho
+                        bering KitKatdan mazali.
+                      </p>
+                      <button
+                        variant="outline"
+                        className="absolute top-[127px] left-0 h-[41px] border-[#cdcfff] text-[#cdcfff] [font-family:'Source_Sans_Pro',Helvetica] font-semibold text-lg"
+                      >
+                        Batafsil
+                      </button>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+
+            </Swiper>
+
           </div>
         </div>
       </section>
@@ -143,7 +176,7 @@ function Home() {
 
         <div className="grid grid-cols-4 gap-6">
           {products.map((product, index) => (
-            <div key={index} className="w-[300px] h-64 rounded-[20px]">
+            <div onClick={() => openProductModal(product)} key={index} className="w-[300px] h-64 rounded-[20px]">
               <div className="relative w-full h-[70%] rounded-[20px] overflow-hidden">
                 <button
 
@@ -288,6 +321,9 @@ function Home() {
           </div>
         </Swiper>
       </section>
+
+      {product && createPortal(<ProductModal product={product} />, document.querySelector('#root'))}
+
     </>
   )
 }

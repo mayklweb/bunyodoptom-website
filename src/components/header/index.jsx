@@ -62,17 +62,17 @@ function Header() {
 
 
           <div className=" flex items-center gap-6">
-            <form className='px-4 py-2 flex items-center justify-center gap-4  rounded focus-within:bg-[#EAEAEA]'>
-              <input className='w-full h-full text-base outline-none' placeholder='Qidirish...' type="text" />
+            <form className='px-4 py-2 flex items-center justify-center gap-4 rounded bg-[#EAEAEA]'>
+              <input className='w-full h-full text-base outline-none ' placeholder='Qidirish...' type="text" />
               <button type='button' className='cursor-pointer'>
                 <Search size={22} />
               </button>
             </form>
-            <div onClick={() => dispatch(modalOpen('logIn'))} className="font-bold text-black text-base cursor-pointer">
-              Войти
+            <div onClick={() => dispatch(modalOpen('logIn'))} className="font-semibold text-black text-base cursor-pointer">
+              KIRISH
             </div>
-            <button onClick={() => dispatch(modalOpen('signUp'))} className="px-4 py-1.5 bg-[#2e3192] text-white rounded font-bold text-base cursor-pointer">
-              Регистрация
+            <button onClick={() => dispatch(modalOpen('signUp'))} className="px-4 py-1.5 bg-[#2e3192] text-white rounded font-semibold text-base cursor-pointer">
+              RO'YHATAN O'TISH
             </button>
           </div>
         </div>

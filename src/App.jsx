@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "./components/header";
 import { routes } from "./utils/routes";
 import { Route, Router, Routes } from "react-router-dom";
-import Login from "./components/modals/LogIn";
+import Login from "./components/modals/Login";
 import SignUp from "./components/modals/SignUp";
 import { useSelector } from "react-redux";
 import { createPortal } from "react-dom";
@@ -75,7 +75,6 @@ function App() {
               </span>
             </div>
 
-            {/* <Separator orientation="vertical" className="h-5 bg-white" /> */}
 
             <div className="flex gap-4 text-white">
               <span className="[font-family:'Source_Sans_Pro',Helvetica] text-lg">
@@ -134,7 +133,7 @@ function App() {
             </div>
 
             <div className="[font-family:'Source_Sans_Pro',Helvetica] text-white text-lg">
-              © 2022 UMDSOFT. All rights reserved.
+              © 2022 BUNYOD OPTOM. All rights reserved.
             </div>
           </div>
         </div>

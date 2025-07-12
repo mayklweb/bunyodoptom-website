@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   signUp: false,
   logIn: false,
+  product: false,
 };
 
 const ModalSlice = createSlice({
@@ -13,15 +14,21 @@ const ModalSlice = createSlice({
       if (payload === "signUp") {
         state.signUp = true;
         state.logIn = false;
-        
+        state.product = false;
       } else if (payload === "logIn") {
         state.logIn = true;
+        state.signUp = false;
+        state.product = false;
+      } else if (payload === "product") {
+        state.product = true;
+        state.logIn = false;
         state.signUp = false;
       }
     },
     modalClose: (state) => {
       state.signUp = false;
       state.logIn = false;
+      state.product = false;
     },
   },
 });
