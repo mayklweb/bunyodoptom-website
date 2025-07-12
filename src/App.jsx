@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="w-full h-full flex flex-col relative">
       <Header />
-      <main className=" flex-auto">
+      <main className="mt-[100px] flex-auto">
         <Routes>
           {
             routes.map((route) => (
