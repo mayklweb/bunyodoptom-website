@@ -15,7 +15,7 @@ function Home() {
   const [modalProduct, setModalProduct] = useState(null)
   const dispatch = useDispatch()
 
-  
+
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -25,8 +25,8 @@ function Home() {
     dispatch(modalOpen("product"));
   }
 
-  
- 
+
+
   // Category data
   const categories = [
     { id: 1, name: "Shokolad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbp7PoArCqz3GLZpGxAEYVcKaGcJDlACvJnQ&s" },
@@ -55,7 +55,7 @@ function Home() {
     rating: 4.5,
   });
 
-  // Partner logos data
+
   const partners = [
     { id: 1, image: "data:image/jpeg;base64,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" },
     { id: 2, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFNdbvN0bX7w2pfZ-WUcRemHKd2qtab_AiLw&s" },
@@ -71,7 +71,7 @@ function Home() {
     <>
       {/* Hero Banner */}
       <section>
-        <div className="container max-w-[1260px] w-full mx-auto">
+        <div className="container">
           <div className="">
             <Swiper slidesPerView={1} modules={[Navigation]}
               navigation={{
@@ -84,19 +84,18 @@ function Home() {
               }} className="w-full h-[50vh] mt-10 relative rounded-xl overflow-hidden">
               {categories.map((category, index) => (
                 <SwiperSlide key={index} className='pb-10'>
-                  <div className="w-full h-full bg-black">
-                    <div className="absolute w-[483px] h-[168px] top-24 left-10">
-                      <h1 className="absolute w-[483px] top-0 left-0 [font-family:'Source_Sans_Pro',Helvetica] font-semibold text-[#ffffff] text-[23px] leading-[28.8px]">
+                  <div className="w-full h-full bg-no-repeat bg-cover bg-center  bg-[url('https://www.shutterstock.com/image-vector/candy-shop-banner-chocolate-treats-600nw-2590841255.jpg')]">
+                    <div className="pt-[98px] pl-[40px] w-1/2">
+                      <h1 className="text-white text-4xl">
                         KitKatdan mazali shokolad tatib ko'rib keyin&nbsp;&nbsp;bizga baho
                         bering
                       </h1>
-                      <p className="absolute w-[386px] top-[63px] left-0 [font-family:'Source_Sans_Pro',Helvetica] font-normal text-[#d9d9d9] text-lg leading-[27px]">
+                      <p className="text-white text-xl mt-4">
                         KitKatdan mazali shokolad tatib ko'rib keyin&nbsp;&nbsp;bizga baho
                         bering KitKatdan mazali.
                       </p>
                       <button
-                        variant="outline"
-                        className="absolute top-[127px] left-0 h-[41px] border-[#cdcfff] text-[#cdcfff] [font-family:'Source_Sans_Pro',Helvetica] font-semibold text-lg"
+                        className="mt-4 border-[#cdcfff] border-[1px] px-6 py-2 rounded-xl text-[#cdcfff] font-semibold text-lg cursor-pointer"
                       >
                         Batafsil
                       </button>
@@ -113,7 +112,7 @@ function Home() {
 
       {/* Categories Section */}
       <section className="">
-        <div className="container max-w-[1260px] w-full mx-auto">
+        <div className="container">
           <div className="mt-10">
             <div className="flex items-center justify-between">
               <h2 className=" font-medium text-[#102440] text-[32px] ">
@@ -170,30 +169,29 @@ function Home() {
 
       {/* Products Section */}
       <section className="mx-[99px] mt-[40px]">
-        <h2 className="font-medium text-[#102440] text-[32px] mb-8">
-          Sizga yoqadiganlari
-        </h2>
+        <div className='container'>
+          <h2 className="font-medium text-[#102440] text-[32px] mb-8">
+            Sizga yoqadiganlari
+          </h2>
 
-        <div className="grid grid-cols-4 gap-6">
-          {products.map((product, index) => (
-            <div onClick={() => openProductModal(product)} key={index} className="w-[300px] h-64 rounded-[20px]">
-              <div className="relative w-full h-[70%] rounded-[20px] overflow-hidden">
-                <button
-
-                  className="absolute top-[15px] right-[15px] bg-white rounded-full p-2.5"
-                >
-                  <HeartIcon />
-                </button>
-                <img src={product.image} alt="" />
+          <div className="grid grid-cols-4 gap-6">
+            {products.map((product, index) => (
+              <div onClick={() => openProductModal(product)} key={index} className="w-full h-64 rounded-[20px]">
+                <div className="relative w-full h-[70%] rounded-[20px] overflow-hidden">
+                  <button className="absolute top-[10px] right-[10px] bg-white rounded-full p-2">
+                    <HeartIcon size={22} />
+                  </button>
+                  <img src={product.image} alt="" />
+                </div>
+                <h3 className="mt-[5px] font-semibold text-[#283645] text-xl leading-[27.3px] [font-family:'Source_Sans_Pro',Helvetica]">
+                  {product.name}
+                </h3>
+                <p className="text-[#61778d] text-base leading-6 [font-family:'Source_Sans_Pro',Helvetica] font-semibold">
+                  {product.price}
+                </p>
               </div>
-              <h3 className="mt-[5px] font-semibold text-[#283645] text-xl leading-[27.3px] [font-family:'Source_Sans_Pro',Helvetica]">
-                {product.name}
-              </h3>
-              <p className="text-[#61778d] text-base leading-6 [font-family:'Source_Sans_Pro',Helvetica] font-semibold">
-                {product.price}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -201,125 +199,124 @@ function Home() {
 
       {/* Partners Section */}
       <section className="mx-[99px] mt-[40px]">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="font-medium text-[#102440] text-[32px] mb-8">
-            Hamkorlarimiz
-          </h2>
-          <div className="flex gap-2.5">
-            <button
-              ref={prevRef}
-              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              ref={nextRef}
-              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-            >
-              <ChevronRight size={22} />
-            </button>
+        <div className='container'>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="font-medium text-[#102440] text-[32px] mb-8">
+              Hamkorlarimiz
+            </h2>
+            <div className="flex gap-2.5">
+              <button
+                ref={prevRef}
+                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                ref={nextRef}
+                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
           </div>
-        </div>
-        <Swiper slidesPerView={5} modules={[Navigation]}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          onBeforeInit={(swiper) => {
-            // assign ref elements to swiper navigation
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }} className="mySwiper">
-          <div className="flex gap-[20px] overflow-x-auto pb-8">
-            {partners.map((partner, index) => (
-              <SwiperSlide>
-                <div
-                  key={index}
-                  className="w-[193px] h-[193px] flex-shrink-0 rounded-[10px] border-[#e2e2e2] bg-[#ffffff33]"
-                >
-                  <div className="flex items-center justify-center h-full p-4">
-                    <img
-                      className="max-w-full max-h-full object-contain"
-                      alt={`Partner ${index + 1}`}
-                      src={partner.image}
-                    />
+          <Swiper slidesPerView={5} modules={[Navigation]}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              // assign ref elements to swiper navigation
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+            }} className="mySwiper">
+            <div className="flex gap-[20px] overflow-x-auto pb-8">
+              {partners.map((partner, index) => (
+                <SwiperSlide>
+                  <div
+                    key={index}
+                    className="w-[193px] h-[193px] flex-shrink-0 rounded-[10px] border-[#e2e2e2] bg-[#ffffff33]"
+                  >
+                    <div className="flex items-center justify-center h-full p-4">
+                      <img
+                        className="max-w-full max-h-full object-contain"
+                        alt={`Partner ${index + 1}`}
+                        src={partner.image}
+                      />
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </div>
-        </Swiper>
-
-        <div className="flex justify-center gap-2 mt-4 mb-8">
-          <div className="w-2.5 h-2.5 bg-app-primary rounded-[5px]" />
-          <div className="w-2.5 h-2.5 bg-app-secondary rounded-[5px]" />
-          <div className="w-2.5 h-2.5 bg-app-secondary rounded-[5px]" />
-          <div className="w-2.5 h-2.5 bg-app-secondary rounded-[5px]" />
+                </SwiperSlide>
+              ))}
+            </div>
+          </Swiper>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="mx-[99px] mt-[40px]">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="[font-family:'Poppins',Helvetica] font-medium text-[#102440] text-[26px] leading-[43.8px]">
-            Mijozlarimizdan fikr-mulohazalar
-          </h2>
-          <div className="flex gap-2.5">
-            <button
-              ref={prevRef}
-              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              ref={nextRef}
-              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-            >
-              <ChevronRight size={22} />
-            </button>
-          </div>
-        </div>
+        <div className='container'>
 
-        <Swiper slidesPerView={3} modules={[Navigation]}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          onBeforeInit={(swiper) => {
-            // assign ref elements to swiper navigation
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }} className="mySwiper">
-          <div className="flex gap-[20px] overflow-x-auto pb-8">
-            {testimonials.map((testimonial, index) => (
-              <SwiperSlide>
-                <div className="p-[23px]">
-                  <h3 className="text-themedarkdefault text-lg leading-normal [font-family:'Source_Sans_Pro',Helvetica] font-semibold mb-4">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-textbodylight text-sm leading-[23px] [font-family:'Source_Sans_Pro',Helvetica] mb-4">
-                    {testimonial.text}
-                  </p>
-                  <div className="flex">
-                    {[1, 2, 3, 4].map((star) => (
-                      <img
-                        key={star}
-                        className="w-4 h-4"
-                        alt="Star"
-                        src="/star-fill.svg"
-                      />
-                    ))}
-                    <img
-                      className="w-4 h-4"
-                      alt="Half star"
-                      src="/star-half.svg"
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
+
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="[font-family:'Poppins',Helvetica] font-medium text-[#102440] text-[26px] leading-[43.8px]">
+              Mijozlarimizdan fikr-mulohazalar
+            </h2>
+            <div className="flex gap-2.5">
+              <button
+                ref={prevRef}
+                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                ref={nextRef}
+                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
           </div>
-        </Swiper>
+
+          <Swiper slidesPerView={3} modules={[Navigation]}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              // assign ref elements to swiper navigation
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+            }} className="mySwiper">
+            <div className="flex gap-[20px] overflow-x-auto pb-8">
+              {testimonials.map((testimonial, index) => (
+                <SwiperSlide>
+                  <div className="p-[23px]">
+                    <h3 className="text-themedarkdefault text-lg leading-normal [font-family:'Source_Sans_Pro',Helvetica] font-semibold mb-4">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-textbodylight text-sm leading-[23px] [font-family:'Source_Sans_Pro',Helvetica] mb-4">
+                      {testimonial.text}
+                    </p>
+                    <div className="flex">
+                      {[1, 2, 3, 4].map((star) => (
+                        <img
+                          key={star}
+                          className="w-4 h-4"
+                          alt="Star"
+                          src="/star-fill.svg"
+                        />
+                      ))}
+                      <img
+                        className="w-4 h-4"
+                        alt="Half star"
+                        src="/star-half.svg"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </div>
+          </Swiper>
+        </div>
       </section>
 
       {product && createPortal(<ProductModal product={product} />, document.querySelector('#root'))}

@@ -51,12 +51,12 @@ function Header() {
                   <Link key={i} className={`text-black text-base ${path === slug && 'font-semibold'}`} to={`${slug}`}>{name}</Link>
                 ))
               }
-              <div className="flex items-center">
+              {/* <div className="flex items-center">
                 <span className="font-normal text-black text-base">
                   Uz
                 </span>
 
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -68,7 +68,7 @@ function Header() {
                 <Search size={22} />
               </button>
             </form>
-            <div onClick={() => dispatch(modalOpen('logIn'))} className="font-semibold text-black text-base cursor-pointer">
+            <div onClick={() => dispatch(modalOpen('logIn'))} className="font-semibold p-2 text-black text-base cursor-pointer">
               KIRISH
             </div>
             <button onClick={() => dispatch(modalOpen('signUp'))} className="px-4 py-1.5 bg-[#2e3192] text-white rounded font-semibold text-base cursor-pointer">

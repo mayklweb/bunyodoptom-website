@@ -40,7 +40,7 @@ function Products() {
                 href="#"
                 className="font-normal text-[#33a0ff] text-lg"
               >
-                Главная
+                Asosiy
               </div>
             </div>
             <div className="font-normal text-[#c1c8ce] text-sm">
@@ -51,7 +51,7 @@ function Products() {
                 href="#"
                 className="font-normal text-neutral-800 text-lg"
               >
-                Продукты
+                Mahsulotlar
               </div>
             </div>
           </div>
