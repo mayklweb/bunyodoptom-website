@@ -274,7 +274,7 @@ function Home() {
             </div>
           </div>
 
-          <Swiper slidesPerView={1.2} spaceBetween={20} centeredSlides={true} loop={true} modules={[Navigation]}
+          <Swiper slidesPerView={1.2} spaceBetween={20} centeredSlides loop={true} modules={[Navigation]}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
