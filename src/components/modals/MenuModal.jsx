@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { modalClose } from "../../store/slices/modals";
 
 function MenuModal() {
-
+    
     const dispatch = useDispatch()
 
     return (
