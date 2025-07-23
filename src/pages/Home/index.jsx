@@ -12,10 +12,7 @@ import { modalOpen } from '../../store/slices/modals';
 function Home() {
 
   const { product } = useSelector(state => state.modals)
-  const [modalProduct, setModalProduct] = useState(null)
   const dispatch = useDispatch()
-
-
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -24,8 +21,6 @@ function Home() {
     setModalProduct(item)
     dispatch(modalOpen("product"));
   }
-
-
 
   // Category data
   const categories = [
@@ -83,8 +78,8 @@ function Home() {
                 swiper.params.navigation.nextEl = nextRef.current;
               }} className="w-full h-[50vh] mt-10 relative rounded-xl overflow-hidden">
               {categories.map((category, index) => (
-                <SwiperSlide key={index} className='pb-10'>
-                  <div className="w-full h-full bg-no-repeat bg-cover bg-center  bg-[url('https://www.shutterstock.com/image-vector/candy-shop-banner-chocolate-treats-600nw-2590841255.jpg')]">
+                <SwiperSlide key={index} className=''>
+                  <div className="w-full h-full bg-no-repeat bg-cover bg-center  bg-[url('/banner.png')]">
                     <div className="pt-[98px] pl-[40px] w-1/2">
                       <h1 className="text-white text-4xl">
                         KitKatdan mazali shokolad tatib ko'rib keyin&nbsp;&nbsp;bizga baho
@@ -112,16 +107,18 @@ function Home() {
 
       {/* Categories Section */}
       <section className="">
-        <div className="container">
-          <div className="mt-10">
-            <div className="flex items-center justify-between">
-              <h2 className=" font-medium text-[#102440] text-[32px] ">
+
+        <div className="mt-10">
+
+          <div className='container'>
+            <div className=" flex items-center justify-between">
+              <h2 className=" font-medium text-[#102440] text-xl lg:text-4xl">
                 Kategoriya
               </h2>
               <div className="flex gap-2.5">
                 <button
                   ref={prevRef}
-                  className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+                  className="p-2 lg:p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
                 >
                   <ChevronLeft size={22} />
                 </button>
@@ -133,42 +130,45 @@ function Home() {
                 </button>
               </div>
             </div>
-
-            <Swiper slidesPerView={6} modules={[Navigation]}
-              navigation={{
-                prevEl: prevRef.current,
-                nextEl: nextRef.current,
-              }}
-              onBeforeInit={(swiper) => {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-              }} className="">
-              {categories.map((category, index) => (
-                <SwiperSlide key={index} className='pb-10'>
-                  <div
-                    className="w-[195px] h-[210px] rounded-xl border-[#f1f1f1] shadow-[0px_2px_14px_#00000017]"
-                  >
-                    <div className="w-full h-4/5 overflow-hidden p-3">
-                      <img
-                        className="w-full h-full object-cover rounded-[8px] "
-                        alt={category.name}
-                        src={category.image}
-                      />
-                    </div>
-                    <p className=" [font-family:'Poppins',Helvetica] text-black text-base text-center leading-[25px]">
-                      {category.name}
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
-
-            </Swiper>
           </div>
-        </div>
-      </section>
 
-      {/* Products Section */}
-      <section className="mx-[99px] mt-[40px]">
+          <Swiper
+            slidesPerView={3.5}
+            spaceBetween={10}
+            modules={[Navigation]}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            onBeforeInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+            }} className="">
+            {categories.map((category, index) => (
+              <SwiperSlide key={index} className='pb-10'>
+                <div
+                  className="w-auto lg:w-[195px] h-auto lg:h-[210px] p-2 lg:p-3 rounded-lg lg:rounded-xl border-[#f1f1f1] shadow-[0px_2px_14px_#00000017]"
+                >
+                  <div className="w-full h-2/3 overflow-hidden ">
+                    <img
+                      className="w-full h-full object-cover rounded-[6px] lg:rounded-[8px]"
+                      alt={category.name}
+                      src={category.image}
+                    />
+                  </div>
+                  <p className=" text-black text-sm lg:text-base text-center mt-2">
+                    {category.name}
+                  </p>
+                </div>
+              </SwiperSlide>
+            ))}
+
+          </Swiper>
+        </div>
+    </section >
+
+      {/* Products Section */ }
+      < section className = " mt-[40px]" >
         <div className='container'>
           <h2 className="font-medium text-[#102440] text-[32px] mb-8">
             Sizga yoqadiganlari
@@ -183,143 +183,144 @@ function Home() {
                   </button>
                   <img src={product.image} alt="" />
                 </div>
-                <h3 className="mt-[5px] font-semibold text-[#283645] text-xl leading-[27.3px] [font-family:'Source_Sans_Pro',Helvetica]">
+                <h3 className="mt-[5px] font-semibold text-[#283645] text-xl">
                   {product.name}
                 </h3>
-                <p className="text-[#61778d] text-base leading-6 [font-family:'Source_Sans_Pro',Helvetica] font-semibold">
+                <p className="text-[#61778d] text-base leading-6 font-semibold">
                   {product.price}
                 </p>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
 
 
-      {/* Partners Section */}
-      <section className="mx-[99px] mt-[40px]">
-        <div className='container'>
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="font-medium text-[#102440] text-[32px] mb-8">
-              Hamkorlarimiz
-            </h2>
-            <div className="flex gap-2.5">
-              <button
-                ref={prevRef}
-                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-              >
-                <ChevronLeft size={22} />
-              </button>
-              <button
-                ref={nextRef}
-                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-              >
-                <ChevronRight size={22} />
-              </button>
-            </div>
+    {/* Partners Section */ }
+    < section className = "mx-[99px] mt-[40px]" >
+      <div className='container'>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="font-medium text-[#102440] text-[32px] mb-8">
+            Hamkorlarimiz
+          </h2>
+          <div className="flex gap-2.5">
+            <button
+              ref={prevRef}
+              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <button
+              ref={nextRef}
+              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+            >
+              <ChevronRight size={22} />
+            </button>
           </div>
-          <Swiper slidesPerView={5} modules={[Navigation]}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              // assign ref elements to swiper navigation
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }} className="mySwiper">
-            <div className="flex gap-[20px] overflow-x-auto pb-8">
-              {partners.map((partner, index) => (
-                <SwiperSlide>
-                  <div
-                    key={index}
-                    className="w-[193px] h-[193px] flex-shrink-0 rounded-[10px] border-[#e2e2e2] bg-[#ffffff33]"
-                  >
-                    <div className="flex items-center justify-center h-full p-4">
-                      <img
-                        className="max-w-full max-h-full object-contain"
-                        alt={`Partner ${index + 1}`}
-                        src={partner.image}
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </div>
-          </Swiper>
         </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="mx-[99px] mt-[40px]">
-        <div className='container'>
-
-
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="[font-family:'Poppins',Helvetica] font-medium text-[#102440] text-[26px] leading-[43.8px]">
-              Mijozlarimizdan fikr-mulohazalar
-            </h2>
-            <div className="flex gap-2.5">
-              <button
-                ref={prevRef}
-                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-              >
-                <ChevronLeft size={22} />
-              </button>
-              <button
-                ref={nextRef}
-                className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
-              >
-                <ChevronRight size={22} />
-              </button>
-            </div>
+        <Swiper slidesPerView={5} modules={[Navigation]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          onBeforeInit={(swiper) => {
+            // assign ref elements to swiper navigation
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }} className="mySwiper">
+          <div className="flex gap-[20px] overflow-x-auto pb-8">
+            {partners.map((partner, index) => (
+              <SwiperSlide>
+                <div
+                  key={index}
+                  className="w-[193px] h-[193px] flex-shrink-0 rounded-[10px] border-[#e2e2e2] bg-[#ffffff33]"
+                >
+                  <div className="flex items-center justify-center h-full p-4">
+                    <img
+                      className="max-w-full max-h-full object-contain"
+                      alt={`Partner ${index + 1}`}
+                      src={partner.image}
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
           </div>
+        </Swiper>
+      </div>
+      </section >
 
-          <Swiper slidesPerView={3} modules={[Navigation]}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              // assign ref elements to swiper navigation
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }} className="mySwiper">
-            <div className="flex gap-[20px] overflow-x-auto pb-8">
-              {testimonials.map((testimonial, index) => (
-                <SwiperSlide>
-                  <div className="p-[23px]">
-                    <h3 className="text-themedarkdefault text-lg leading-normal [font-family:'Source_Sans_Pro',Helvetica] font-semibold mb-4">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-textbodylight text-sm leading-[23px] [font-family:'Source_Sans_Pro',Helvetica] mb-4">
-                      {testimonial.text}
-                    </p>
-                    <div className="flex">
-                      {[1, 2, 3, 4].map((star) => (
-                        <img
-                          key={star}
-                          className="w-4 h-4"
-                          alt="Star"
-                          src="/star-fill.svg"
-                        />
-                      ))}
+    {/* Testimonials Section */ }
+    < section className = "mx-[99px] mt-[40px]" >
+      <div className='container'>
+
+
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="[font-family:'Poppins',Helvetica] font-medium text-[#102440] text-[26px] leading-[43.8px]">
+            Mijozlarimizdan fikr-mulohazalar
+          </h2>
+          <div className="flex gap-2.5">
+            <button
+              ref={prevRef}
+              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <button
+              ref={nextRef}
+              className="p-2.5 bg-[#CECFFF] rounded-full cursor-pointer"
+            >
+              <ChevronRight size={22} />
+            </button>
+          </div>
+        </div>
+
+        <Swiper slidesPerView={3} modules={[Navigation]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          onBeforeInit={(swiper) => {
+            // assign ref elements to swiper navigation
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }} className="mySwiper">
+          <div className="flex gap-[20px] overflow-x-auto pb-8">
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide>
+                <div className="p-[23px]">
+                  <h3 className="text-themedarkdefault text-lg leading-normal [font-family:'Source_Sans_Pro',Helvetica] font-semibold mb-4">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-textbodylight text-sm leading-[23px] [font-family:'Source_Sans_Pro',Helvetica] mb-4">
+                    {testimonial.text}
+                  </p>
+                  <div className="flex">
+                    {[1, 2, 3, 4].map((star) => (
                       <img
+                        key={star}
                         className="w-4 h-4"
-                        alt="Half star"
-                        src="/star-half.svg"
+                        alt="Star"
+                        src="/star-fill.svg"
                       />
-                    </div>
+                    ))}
+                    <img
+                      className="w-4 h-4"
+                      alt="Half star"
+                      src="/star-half.svg"
+                    />
                   </div>
-                </SwiperSlide>
-              ))}
-            </div>
-          </Swiper>
-        </div>
-      </section>
+                </div>
+              </SwiperSlide>
+            ))}
+          </div>
+        </Swiper>
+      </div>
+      </section >
 
-      {product && createPortal(<ProductModal product={product} />, document.querySelector('#root'))}
+    { product && createPortal(<ProductModal product={product} />, document.querySelector('#root'))
+}
 
     </>
   )

@@ -1,5 +1,4 @@
 import { X } from 'lucide-react'
-import React from 'react'
 import { useDispatch } from 'react-redux'
 import { modalClose } from '../../store/slices/modals'
 
@@ -25,7 +24,7 @@ function ProductModal() {
               <h3>Snickers mini</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing quisque laoreet tempus amet, convallis. Tincidunt facilisis mollis arcu volutpat, feugiat ultrices.</p>
               
-              <button className='w-full h-full mt-4 py-3 text-white bg-[#2E3192] rounded-[10px]'>Ro’yxatdan o’tish</button>
+              <button className='w-full h-full mt-4 py-3 text-white bg-[#2E3192] rounded-[10px]'>Savatga</button>
             </div>
           </div>
         </div>

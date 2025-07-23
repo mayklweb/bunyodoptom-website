@@ -7,10 +7,11 @@ import Login from "./components/modals/Login";
 import SignUp from "./components/modals/SignUp";
 import { useSelector } from "react-redux";
 import { createPortal } from "react-dom";
+import MenuModal from "./components/modals/MenuModal";
 
 function App() {
 
-  const { signUp, logIn } = useSelector(state => state.modals)
+  const { signUp, logIn, menu } = useSelector(state => state.modals)
 
 
   return (
@@ -25,7 +26,7 @@ function App() {
           }
         </Routes>
       </main>
-      <footer className="w-full h-[231px] mt-[40px] bg-[#0d0d2c]">
+      {/* <footer className="w-full h-[231px] mt-[40px] bg-[#0d0d2c]">
         <div className="max-w-[1266px] mx-auto pt-[33px]">
           <div className="flex justify-between items-center">
             <img
@@ -122,7 +123,6 @@ function App() {
                 </span>
               </div>
 
-              {/* <Separator orientation="vertical" className="h-5 bg-white" /> */}
 
               <div className="flex items-center gap-2">
                 <MailIcon className="w-6 h-6 text-white" />
@@ -137,7 +137,7 @@ function App() {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
 
       <button
         size="icon"
@@ -147,6 +147,8 @@ function App() {
       </button>
       {signUp && createPortal(<SignUp />, document.querySelector('#root'))}
       {logIn && createPortal(<Login />, document.querySelector('#root'))}
+      {menu && createPortal(<MenuModal />, document.querySelector('#root'))}
+      
     </div>
   );
 };

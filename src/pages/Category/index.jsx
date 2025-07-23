@@ -107,7 +107,6 @@ function Products() {
                   </button>
                   <div className='w-full h-full object-cover'>
                     <img src={product.image} alt="" className='w-full h-full object-cover' />
-
                   </div>
                 </div>
                 <h3
